@@ -1,0 +1,38 @@
+:root {
+  --card-bd-rd: 4px;
+}
+
+.card {
+  border-radius: var(--card-bd-rd);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+}
+
+.card h1 {
+  font-size: 1.2rem;
+}
+
+.card .card__name {
+  font-weight: semibold;
+  margin-bottom: 10px;
+}
+
+.card .card__course {
+  color: #666;
+  font-weight: 400;
+}
+
+.card .card__institution {
+  color: #666;
+  font-weight: 400;
+}
+
+.card__name, 
+.card__course,
+.card__institution {
+  font-size: 0.9rem;
+}
