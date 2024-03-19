@@ -1,0 +1,12 @@
+#temp-container{
+    height: 160px;
+    width: 95%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+}
+
+#temp-container h1{
+    font-size: 1.2rem;
+}
