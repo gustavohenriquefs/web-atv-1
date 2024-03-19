@@ -1,23 +1,25 @@
 import './App.css';
-import { MeusDados, MeusDados1, MeusDados2, MeusDados3 } from './components/atividade00/01MeusDados';
-import { MeusDadosProps1 } from './components/atividade00/02MeusDados';
+import { Pai } from './components/atividade01/questao01/01Pai';
+import * as PC from './components/atividade01/02MeuPC';
+import { Arena, World } from './components/atividade01/03Batalha';
 
 function App() {
   return (
     <>
-      <MeusDados />
-      <MeusDados1 />
-      <MeusDados2 />
-      <MeusDados3 />
       
-      <hr />
+      <Pai />
       
-      <MeusDadosProps1
-        name='Erick Gabriel Ferreira Gaspar'
-        course='Engenharia de Software'
-        institution='UFC - Campus Quixadá'
-      />
+      <PC.Memoria nome="Corsair Vengeance LPX 16GB" preco={350.00}/>
 
+      <PC.PlacaDeVideo nome="Nvidia GeForce RTX 3060" preco={1200.00}/>
+
+      <PC.PlacaMae nome="ASUS ROG Strix B450-F" preco={700.00}/>
+
+      <World>
+        <Arena />
+        <Arena />
+        <Arena />
+      </World>
     </>
   );
 }
