@@ -30,12 +30,12 @@ export const Questao03 = () => {
 
   return <div>
     <h1>Questão 03</h1>
-    Capitais maior população: {
-      capitalMaiorPopulacao && capitalMaiorPopulacao.capital && capitalMaiorPopulacao.capital.map(
+    Capital com maior população: {
+      capitalMaiorPopulacao?.capital?.map(
         (nome) => <p key={nome}>{nome}</p>)
     }
-    Capitais menor população: {
-      capitalMenorPopulacao && capitalMenorPopulacao.capital && capitalMenorPopulacao.capital.map(
+    Capital com menor população: {
+      capitalMenorPopulacao?.capital?.map(
         (nome) => <p key={nome}>{nome}</p>
       )
     }
