@@ -1,0 +1,9 @@
+O uso de context resolve o problema de props drilling, porque somente os componentes
+que realmente vão fazer uso daquela informação que vão precisar acessar ela.
+
+Exemplo:
+
+export const CA = () => {
+  return <CB agua={"azul"}/> 
+}
+
