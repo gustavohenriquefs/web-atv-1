@@ -10,17 +10,17 @@ export const Questao03 = () => {
     // pega os resultado em formato JSON
     const result = await resultPromise.json();
 
-    result.forEach(capital => {
-      // compara se a atual salva tem a maior população, caso contrário pega a que estamos atualmente comparando
-      if ((!capitalMaiorPopulacao) || capital.population > capitalMaiorPopulacao.population) {
-        setCapitalMaiorPopulacao(capital);
-      }
+    // Reduzimos os dados até acharmos a capital com maior população
+    const maiorPopulacao = result.reduce((anterior, atual) =>
+      anterior.population > atual.population ? anterior : atual
+    );
+    // Reduzimos os dados até acharmos a capital com menor população
+    const menorPopulacao = result.reduce((anterior, atual) =>
+      anterior.population < atual.population ? anterior : atual
+    );
 
-      // compara se a atual salva tem a menor população, caso contrário pega a que estamos atualmente comparando
-      if ((!capitalMenorPopulacao) || capital.population < capitalMenorPopulacao.population) {
-        setCapitalMenorPopulacao(capital);
-      }
-    });
+    setCapitalMaiorPopulacao(maiorPopulacao);
+    setCapitalMenorPopulacao(menorPopulacao)
   }
 
   useEffect(() => {

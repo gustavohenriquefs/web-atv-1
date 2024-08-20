@@ -1,9 +1,52 @@
-O uso de context resolve o problema de props drilling, porque somente os componentes
+O uso de context resolve o problema de Props Drilling, porque somente os componentes
 que realmente vão fazer uso daquela informação que vão precisar acessar ela.
 
-Exemplo:
+>> Exemplo de código com e sem contexto:
 
-export const CA = () => {
-  return <CB agua={"azul"}/> 
-}
+import React, { createContext, useContext } from 'react';
+
+// Componente que vai fazer uso da informação passado pelas props
+const ComponentF = ({ info }) => {
+  return <div>{info}</div>;
+};
+
+const ComponentE = ({ info }) => <ComponentF info={info} />;
+const ComponentD = () => <ComponentE info={"Informação impostante sem contexto"} />;
+
+export const SemUsarContexto = () => (
+  <DataProvider>
+    <ComponentD />
+  </DataProvider>
+);
+
+// Criamos o contexto
+const DataContext = createContext();
+
+// ---------------------------------------------------
+
+// Componente de fornecimento de contexto
+const DataProvider = ({ children }) => {
+  const data = "Informação importante";
+
+  return (
+    <DataContext.Provider value={data}>
+      {children}
+    </DataContext.Provider>
+  );
+};
+
+const ComponentC = () => {
+  const data = useContext(DataContext);
+  return <div>{data}</div>;
+};
+
+const ComponentB = () => <ComponentC />;
+const ComponentA = () => <ComponentB />;
+
+export const UsandoContexto = () => (
+  <DataProvider>
+    <ComponentA />
+  </DataProvider>
+);
+
 

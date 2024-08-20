@@ -18,11 +18,11 @@ const Questao04 = () => {
     try {
       const data = await obterCapitais();
 
-    // Reduzimos os dados até acharmos a capital com maior população
+      // Reduzimos os dados até acharmos a capital com maior população
       const maiorPopulacao = data.reduce((anterior, atual) =>
         anterior.population > atual.population ? anterior : atual
-    );
-    // Reduzimos os dados até acharmos a capital com menor população
+      );
+      // Reduzimos os dados até acharmos a capital com menor população
       const menorPopulacao = data.reduce((anterior, atual) =>
         anterior.population < atual.population ? anterior : atual
       );
